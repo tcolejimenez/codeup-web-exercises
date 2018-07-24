@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Gaegu|Raleway|Permanent+Marker");
+
+
+body {
+    background-color: #4b4b4b;
+}
+
+p {
+    color: #eee1cd;
+    font-family: 'Gaegu', cursive;
+    font-size: larger;
+    padding: 15px;
+
+}
+
+h1 {
+    font-family: 'Permanent Marker', sans-serif;
+    text-align: left;
+    text-indent: 50px;
+    color: #e6c256;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 75px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+ }
+
+div {
+    margin: 100px;
+    padding: 30px;
+    border: 4px;
+    background-color: #E66F58;
+    align-items: center;
+}
+
+
+ a {
+     color: #e6c256;
+}
+
