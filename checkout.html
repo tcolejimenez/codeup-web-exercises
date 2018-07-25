@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ex Forms 4 - Checkout</title>
+    </head>
+    <body>
+    <!--4. Make a file named checkout.html
+    - This will be a form for a credit card checkout
+    - Make all fields required except for the checkbox
+    - Add an input for credit card number, expiration month/year, security code
+    - Add inputs for billing address
+    - Add a checkbox that says "Keep this credit card on file for future transactions"
+    - The submit button's text should say "Buy Now!" -->
+
+
+        <h1>Checkout</h1>
+        <p>Please enter your payment info and billing address below. You have the option to save this card for future
+            transactions.</p>
+        <form>
+            <h3>Payment Info</h3>
+            <table> <!-- payment info -->
+                <tr> <!--credit card number-->
+                    <td><label>Credit Card:</label></td>
+                    <td><input type="number"></td>
+                </tr>
+
+                <tr> <!--expiration month/year-->
+                    <td><label>Exp. Date:</label></td>
+                    <td><input type="month"></td>
+                </tr>
+
+                <tr> <!--security code-->
+                    <td><label>Security Code:</label></td>
+                    <td><input type="number"></td>
+                </tr>
+            </table>
+            <br>
+            <h3>Billing Address</h3>
+            <table>
+                <tr> <!--billing address line 1 -->
+                    <td><label> Address line 1:</label></td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr> <!--billing address line 2 -->
+                    <td>
+                        <label>
+                        Address line 2:
+                        </label>
+                        <input>
+
+                    </td>
+                </tr>
+
+                <tr> <!--billing address city, state, zip -->
+                    <td>
+                        <label>
+                        City
+                        </label>
+                        <input>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                        State
+                        </label>
+                        <input>
+
+                    </td>
+
+                    <label>
+                        Zip
+                    </label>
+                    <input>
+                </tr>
+            </table>
+
+            <input type="checkbox"> <label>Save this card for future purchases</label> <!--save cc checkbox-->
+            <br>
+            <button>Submit</button> <!--submit - Buy Now!-->
+        </form>
+    </body>
+</html>

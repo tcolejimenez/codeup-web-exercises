@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex Forms 1- Register</title>
+</head>
+<body>
+<!--1. Make a file named register.html
+    - Add registration form with the following inputs
+    - username, required, make sure your cursor is in this box on page load automatically
+    - email, required
+    - password, required
+    - add a checkbox for "sign me up to the newsletter" that loads checked
+    - Make sure that the text on the submit button is "Create New Account!"
+-->
+<h1>Register</h1>
+<p>Please enter your information below. You'll receive an email confirming your registration once complete.</p>
+<div>
+    <form method="post" action="http://requestbin.net/r/u81neou8">
+    <table>
+        <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" name="username" placeholder="Enter desired username" required autofocus></td> <!-- required, cursor focus -->
+        </tr>
+
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email" name="email" placeholder="Enter email address" required></td> <!-- email required-->
+        </tr>
+
+        <tr>
+            <td><label for="pass">Password:</label></td>
+            <td><input type="password" id="pass" name="pass" placeholder="Enter desired password"required></td> <!-- password required-->
+        </tr>
+
+        <tr>
+            <td><label for="passconfirm">Confirm Password:</label></td>
+            <td><input type="password" id="passconfirm" name="passconfirm" placeholder="Enter same password" required></td> <!-- bonus: password confirm req -->
+        </tr>
+    </table>
+
+    <input type="checkbox" id="newsletter" name="newsletter" checked>
+    <label for="newsletter">Sign me up for the newsletter</label> <!-- newsletter checkbox, checked -->
+    <br>
+    <button type="submit" value="Submit">Create New Account!</button> <button type="reset" value="Reset">Reset</button> <!-- button - Create New Account! -->
+    </form>
+</div>
+</body>
+</html>

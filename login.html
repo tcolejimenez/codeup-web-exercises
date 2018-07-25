@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Ex Forms 2- Login</title>
+    </head>
+
+    <body>
+    <!--
+    2. Make a file named login.html
+    - Add the following inputs:
+    - username, make it required, ensure the cursor is inside this input on page load
+    - email, make it required
+    - password, make it required
+    - add a checkbox that says "Keep me logged in for 2 weeks" and load the page with the checkbox checked
+    - Make sure that the text on the submit button says "Login" -->
+
+   <h1>Login Page</h1>
+   <p>Please enter your credentials to log in.</p>
+    <div>
+    <form method="post" action="http://requestbin.net/r/u81neou8">
+        <table>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username" placeholder="Enter username" required autofocus></td> <!-- required, cursor focus -->
+            </tr>
+
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Enter email address" required></td> <!-- email required-->
+            </tr>
+
+            <tr>
+                <td><label for="pass">Password:</label></td>
+                <td><input type="password" id="pass" name="pass" placeholder="Enter password"required></td> <!-- password required-->
+            </tr>
+
+        </table>
+
+        <input type="checkbox" id="stickylogin" name="newsletter" checked>
+        <label for="stickylogin">Keep me logged in for 2 weeks</label>
+        <br>
+        <button type="submit" value="Submit">Login</button>
+    </form>
+    </div>
+
+
+    </body>
+</html>
