@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+    <style>
+        body {
+            background-color: #4b4b4b;
+            margin: 80px;
+            color: #e6e1ac;
+            font-family: Courier, sans-serif;
+        }
+
+        h1, h3 {
+            color: #E4CD80;
+            font-weight: lighter;
+        }
+
+        h1 {
+            text-transform: uppercase;
+        }
+
+        div {
+            border-style: dashed;
+            border-width: 3px;
+            border-color: #E4CD80;
+            padding: 10px;
+            color: #292929;
+            background-color: #888888;
+            width: 600px;
+        }
+
+        input, textarea {
+        margin-bottom: 15px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            background-color: #E4CD80;
+            margin: 10px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Register</h1>
+    <h3>Please enter your information below. Thank you for your help! </h3>
+    <div>
+        <form method="post" action="http://requestbin.net/r/1jetxwt1">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+            <br>
+
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" placeholder="Enter password">
+            <br>
+
+            <label>Bio:</label>
+            <br>
+            <textarea rows="3" cols="50" placeholder="Enter a brief description of yourself..." id="bio" name="bio"></textarea>
+            <br>
+
+            <label>How did you hear about us:</label>
+            <br>
+            <input type="radio" name="firstcontact" id="billboard" value="billboard">
+            <label for="billboard">Billboard</label>
+            <input type="radio" id="radio ad" name="firstcontact" value="radio">
+            <label for="radio ad">Radio Ad</label>
+            <input type="radio" id="internet ad" name="firstcontact" value="internet" checked>
+            <label for="internet ad">Internet Ad</label>
+            <input type="radio" id="other" name="firstcontact" value="other">
+            <label for="other">Other</label>
+            <br>
+
+            <label for="browser">Which web browser are you using:</label><br>
+            <select id="browser" name="browser">
+                <option value="chrome">Google Chrome</option>
+                <option value="firefox">Mozilla Firefox</option>
+                <option value="safari"> Apple Safari</option>
+                <option value="ie">Windows Internet Explorer</option>
+                <option value="edge">Windows Edge</option>
+                <option value="other">Other</option>
+
+            </select>
+            <br>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
