@@ -1,0 +1,77 @@
+/*Using mobile first approach:
+    css here will be styled for small devices (smart phones) */
+
+* {
+    font-family: sans-serif;
+}
+
+.alert-info {
+    padding: 15px;
+    border: 2px solid lightgray;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.alert-info a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style-type: none;
+    padding: 15px;
+    margin: 15px;
+    background-color: lightgray;
+    text-align: center;
+
+}
+
+img {
+    width: 339px;
+    height: 224px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    margin-bottom: -5px;
+}
+
+section {
+    padding-bottom: 15px;
+}
+
+.sub-section {
+    font-style: italic;
+}
+
+footer {
+    font-size: 12px;
+}
+
+footer p {
+    float: left;
+}
+
+#social-media-links {
+    float: right;
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+    /* Styles */
+}
