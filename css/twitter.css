@@ -29,12 +29,13 @@ a {
     background: var(--light-bg);
     position: fixed;
     width: 100%;
-    z-index: 2000;
+    z-index: 1000;
 }
 .nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    z-index: 1000;
 }
 .nav-link {
     color: var(--main-link-color);
@@ -84,4 +85,47 @@ a {
 
 .profile-form {
     line-height: 80px;
+}
+
+.profile-details, .timeline, .who-to-follow {
+    margin: 0px .5em;
+
+}
+
+.profile-details {
+    float: left;
+    width: calc(25%-1em);
+}
+
+.timeline {
+    float: left;
+    width: calc(50%-1em);
+    align: center;
+}
+
+.who-to-follow {
+    float: right;
+    width: calc(25%-1em);
+}
+
+.container {
+    margin-top: 2em;
+}
+
+.media {
+    width: 100%;
+    background-color: var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
+    overflow: auto;
+
+}
+
+.media-image {
+    max-width: 50px;
+    float: left;
+    margin-top: 1.33em;
+}
+
+.media-body {
+    float: left;
 }
