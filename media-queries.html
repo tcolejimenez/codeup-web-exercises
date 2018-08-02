@@ -4,37 +4,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/grid-layout.css">
     <title>Media Queries</title>
 </head>
 <body>
-    <div class="alert-info hidden-on-desktop">
-        <a href="#main">Skip to main content</a>
-    </div>
-    <h1>Company</h1>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="header-img">
-        <img src="http://lorempixel.com/g/900/400" alt="">
-    </div>
-    <section id="main" class="main">
-        <h2>Main Section</h2>
-        <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
-    </section>
-    <section class="sub-section">
-        <h2>Sub-section</h2>
-        <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
-    </section>
-    <footer>
-        <p>(c) 2017 All rights reserved</p>
-        <div id="social-media-links">
-
+    <!--back to top-->
+    <div class="row">
+        <div class="column one">
+            <div class="alert-info hidden-on-desktop">
+                <a href="#main">Skip to main content</a>
+            </div>
         </div>
+    </div>
+
+
+
+    <!--heading + nav -->
+    <div class="row">
+
+        <div class="column two-thirds">
+            <h1>Company</h1>
+        </div>
+
+        <!--<div class="column one-third" id="large-display">-->
+            <!--xxxx-->
+        <!--</div>-->
+
+        <div class="column one-third">
+            <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <!--top image -->
+    <!--<div class="row">-->
+        <div class="header-img">
+            <img src="http://via.placeholder.com/900x400" alt="">
+            <!--<img src="http://lorempixel.com/g/900/400" alt="">-->
+        <!--</div>-->
+    </div>
+
+
+
+    <!--Main content -->
+    <div class ="row">
+        <section id="main" class="main column two-thirds">
+            <h2>Main Section</h2>
+            <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
+        </section>
+
+        <section class="sub-section column one-third">
+            <h2>Sub-section</h2>
+            <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
+        </section>
+    </div>
+<img
+
+    <!--footer-->
+    <footer>
+    <div class="row">
+        <div class="column one-quarter">
+            <p>(c) 2017 All rights reserved</p>
+        </div>
+        <div class="column one-half"></div>
+        <div class="column one-quarter">
+            <div id="social-media-links">
+                <a href="facebook.com"><img src="img/facebook.png"></a>
+                <a href="instagram.com"><img src="img/instagram.png"></a>
+                <a href="twitter.com"><img src="img/twitter.png"></a>
+                <a href="mailto:"><img src="img/share.png"></a>
+            </div>
+        </div>
+    </div>
     </footer>
+
+
 </body>
 </html>

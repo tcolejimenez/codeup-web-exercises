@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Forms</title>
+    <link rel="stylesheet" href="css/grey-gold.css">
 </head>
 
 <body>
 <h1>Let's work with forms!</h1>
-<form action="forms.html">
+<p>Please fill out the following information.
+    <br>
+    You will be rewarded with a tale like no other. </p>
+<div>
+<form method="POST" action="madlib-2.html">
 
     <label for="name">How do you like to be addressed?</label>
     <br>
-    <input type="text" id="name" name="username">
+    <input type="text" id="name" name="name">
     <br>
 
     <label>Tell me a secret:</label>
@@ -19,7 +24,7 @@
     <input type="password">
     <br>
 
-    <label>If you only had to live with one dessert, which would you pick?</label>
+    <label>If you could only have one dessert forever, which would you choose?</label>
     <br>
     <input type="radio" id="icecream" name="dessert">
     <label for="icecream">Ice Cream</label>
@@ -34,8 +39,8 @@
     <input type="checkbox" id="sunglasses" name="cool">
     <label>Sunglasses</label>
 
-    <input type="checkbox" id="hugs" name="cool">
-    <label>Hugs</label>
+    <input type="checkbox" id="smile" name="cool">
+    <label>Smiles</label>
 
     <input type="checkbox" id="cardigans" name="cool">
     <label>Cardigans</label>
@@ -43,8 +48,8 @@
     <input type="checkbox" id="music" name="cool">
     <label>Music</label>
 
-    <input type="checkbox" id="dogs" name="dogs">
-    <label>Dogs</label>
+    <input type="checkbox" id="bananes" name="cool">
+    <label>Bananas</label>
     <br>
 
     <label for="about" >Tell me the best joke you've heard:</label>
@@ -110,6 +115,7 @@
     <input type="hidden">
 
     <button>Submit</button>
-</form>
+    </form>
+    </div>
 </body>
 </html>

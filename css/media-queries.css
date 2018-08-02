@@ -4,7 +4,7 @@
 }
 
 body {
-    margin: 20px;
+    /*margin: 20px;*/
 }
 
 footer {
@@ -16,7 +16,17 @@ footer {
 }
 
 #social-media-links {
-    float: right;
+    /*float: right;*/
+}
+div {
+    /*background-color: lightcoral;*/
+    /*background-color: #0fb784;*/
+    /*border: 2px solid white;*/
+    /*box-sizing: border-box;*/
+}
+
+#social-media-links img {
+    display: inline;
 }
 
 /*Using mobile first approach:
@@ -75,7 +85,7 @@ footer {
     }
 
     footer p {
-        float: left;
+        /*float: left;*/
     }
 
     #social-media-links {
@@ -84,21 +94,32 @@ footer {
 
 }
 
+
 /* Desktops and laptops ----------- */
-@media only screen  and (min-width: 481px) {
+@media screen  and (min-width: 481px) {
     .hidden-on-desktop {
         display: none;
     }
 
-    h1 {
-        float: left;
-        font-size: 50px;
+    body {
+        max-width: 900px;
+        padding: 10px;
+        margin: auto;
     }
 
-    .nav-links {
-        float: right;
-        padding: 20px;
+    /*h1 {*/
+        /*float: left;*/
+        /*font-size: 50px;*/
+    /*}*/
 
+    /*.nav-links {*/
+        /*float: right;*/
+        /*padding: 20px;*/
+
+    /*}*/
+
+    ul {
+        padding: 0px;
     }
 
     .nav-links li {
@@ -108,17 +129,18 @@ footer {
     }
 
     img {
-        clear: both;
-        width: 890px;
-        height: 385px;
+        /*clear: both;*/
+        max-width: 890px;
+        max-height: 385px;
+
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
     section {
-        float: left;
-        margin: auto;
+        /*float: left;*/
+        /*margin: auto;*/
 
     }
 
@@ -130,24 +152,50 @@ footer {
         font-size: 14px;
     }
 
-    .main {
-        max-width: 600px;
-        min-width: 300px;
+    /*.main {*/
+        /*max-width: 60%;*/
+        /*margin-right: 30px;*/
+    /*}*/
 
-    }
-
-    .sub-section {
-        max-width: 300px;
-        min-width: 200px;
-        margin-left: 30px;
-    }
+    /*.sub-section {*/
+        /*max-width: 30%;*/
+    /*}*/
 
     .sub-section h2 {
         font-size: 20px;
     }
 
-    footer {
-        padding-top: 300px;
-        clear: both;
+    /*footer {*/
+        /*padding-top: 300px;*/
+        /*clear: both;*/
+    /*}*/
+
+#social-media-links {
+    margin-right: 0px;
+}
+}
+
+
+
+
+/* tables + less than full screen*/
+@media screen  and (max-width: 915px) {
+    img {
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
+
+
+    #social-media-links img {
+        width: 15% !important;
+
+    }
+
+    #large-display {
+        display: none;
+    }
+
+
 }
