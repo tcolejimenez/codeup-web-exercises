@@ -5,15 +5,10 @@
     <title>Order Your Pizza - Pizza World</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--Navigation Bar-->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -21,32 +16,37 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <!--Nav header-->
     <a class="navbar-brand" href="#">Pizza World</a>
-    <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navy" aria-controls="navbarNav"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <!--Nav items-->
     <!--mr-auto collapses items-->
-    <div class="collapse navbar-collapse" id="navy">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Order Online <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Menu</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter your zipcode">
-                <button class="btn my-2 my-sm-0">find stores near you</button>
-            </form>
-            <span><i class="fas fa-user mr-sm-2>"></i><a class="nav-item nav-link" href="#">Sign Up</a></span>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Enter your zipcode" aria-label="Search">
+                    <button class="btn my-2 my-sm-0">find stores near you</button>
+                </form>
+            </li>
+        </ul>
+        <div class="text-light"><i class="fas fa-user"><!-- image--></i>Sign Up</div>
     </div>
 </nav>
 <!--<span class="navbar-text">-->
 <!--The best place for pizza now -->
 <!--</span>-->
-
-
-
-
 
 
 <!--Jumbotron to display important message-->
@@ -56,9 +56,6 @@
     <h1 class="display-4">Welcome to Pizza World</h1>
     <!--</div>-->
 </div>
-
-
-
 
 
 <!--basic container to format main content better-->
@@ -86,18 +83,18 @@
     <!--tab content to control which page shown -->
     <!--<div class="tab-content">-->
 
+    <!--<div class="tab-content">-->
+    <!--<div role="tabpanel" class="tab-pane fade in active" id="profile">...</div>-->
+    <!--<div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>-->
+    <!--<div role="tabpanel" class="tab-pane fade" id="references">ccc</div>-->
+    <!--</div>-->
 
 
-
-
-
-
-
-
+    <!---->
     <!--cards used for each tab-->
     <!--tab for crust and size-->
     <div class="card" id="crust-size">
-        <div class="card-header">Choose your crust and size</div>
+        <div class="card-header bg-warning text-dark">Choose your crust and size</div>
         <!--cards also used inside for each option-->
         <!--container used to bring edge off first card -->
         <br>
@@ -107,7 +104,7 @@
             <div class="card">
                 <div class="card-header">Hand Tossed</div>
 
-               <!--short description of crust-->
+                <!--short description of crust-->
                 <div class="card-body">
                     <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
                 </div>
@@ -116,19 +113,22 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="size" value="small-handtossed" id="small-ht">
+                            <input class="form-check-input" type="radio" name="size" value="small-handtossed"
+                                   id="small-ht">
                             <label class="form-check-label" for="small-ht">Small (10")</label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="size" value="medium-handtossed" id="medium-ht">
+                            <input class="form-check-input" type="radio" name="size" value="medium-handtossed"
+                                   id="medium-ht">
                             <label class="form-check-label" for="medium-ht">Medium (12")</label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="size" value="large-handtossed" id="large-ht">
+                            <input class="form-check-input" type="radio" name="size" value="large-handtossed"
+                                   id="large-ht">
                             <label class="form-check-label" for="large-ht">Large (14")</label>
                         </div>
                     </li>
@@ -142,7 +142,7 @@
             <div class="card">
                 <div class="card-header">Thin Crust</div>
                 <div class="card-body">
-                <p class="card-text">Thin enough for the optimal crispy-to-crunchy ratio.</p>
+                    <p class="card-text">Thin enough for the optimal crispy-to-crunchy ratio.</p>
                 </div>
 
                 <!--list of different sizes for crust-->
@@ -173,24 +173,30 @@
         </div>
         <!--card footer-->
         <div class="card-footer text-right">
-            <a href="#cheese-sauce" class="btn btn-primary">Next Step</a>
+            <a href="#cheese-sauce" class="btn btn-primary">Next Step ></a>
         </div>
     </div>
     <br>
 
 
+
+
+
+
     <!--cards used for each tab-->
     <!--tab for cheese and sauce -->
     <div class="card" id="cheese-sauce">
-        <div class="card-header">Choose your cheese and sauce</div>
+        <div class="card-header bg-warning text-dark">Choose your cheese and sauce</div>
         <!--cards also used inside for each option-->
         <!--container used to bring edge off first card -->
         <br>
         <div class="container">
+
+
             <!--card for cheese-->
             <div class="card">
                 <div class="card-header">Cheese</div>
-                <div class="card-footer">
+                <div class="card-footer bg-white">
                     <form>
                         <div class="form-group">
                             <label for="cheese">How much?</label>
@@ -205,11 +211,14 @@
                 </div>
             </div>
             <br>
+
+
+
             <!--card for sauce-->
             <div class="card">
                 <div class="card-header">Sauce</div>
 
-                <div class="card-footer">
+                <div class="card-footer bg-white">
                     <form>
                         <div class="form-group">
                             <label for="sauce">Choose your sauce: </label>
@@ -224,7 +233,7 @@
                             <label for="cheese">How much?</label>
                             <select class="form-control" id="cheese">
                                 <option>Light</option>
-                                <option >Normal</option>
+                                <option>Normal</option>
                                 <option>Extra</option>
                                 <option>Double</option>
                             </select>
@@ -235,8 +244,10 @@
         </div>
         <br>
         <div class="card-footer text-right">
-            <a href="#crust-size" class="btn btn-primary">Previous Step</a>
-            <a href="#toppings" class="btn btn-primary">Next Step</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="#crust-size" class="btn btn-primary">< Previous Step</a>
+                <a href="#toppings" class="btn btn-primary">Next Step ></a>
+            </div>
         </div>
     </div>
 
@@ -247,9 +258,7 @@
     <!--cards used for each tab-->
     <!--card for toppings-->
     <div class="card" id="toppings">
-        <div class="card-header">
-            Choose your toppings
-        </div>
+        <div class="card-header bg-warning text-dark">Choose your toppings</div>
         <!--cards also used inside for each option-->
         <!--container used to bring edge off first card -->
         <br>
@@ -309,34 +318,37 @@
                         </li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="veggies" value="mushrooms" id="mushrooms">
+                                <input class="form-check-input" type="checkbox" name="veggies" value="mushrooms"
+                                       id="mushrooms">
                                 <label class="form-check-label" for="mushrooms">Mushrooms</label>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="veggies" value="onions" id="onions">
+                                <input class="form-check-input" type="checkbox" name="veggies" value="onions"
+                                       id="onions">
                                 <label class="form-check-label" for="onions">Onions</label>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="veggies" value="jalapenos" id="jalapenos">
+                                <input class="form-check-input" type="checkbox" name="veggies" value="jalapenos"
+                                       id="jalapenos">
                                 <label class="form-check-label" for="jalapenos">Jalapenos</label>
                             </div>
                         </li>
                     </ul>
-            </form>
-        </div>
-        <br>
+                </form>
+            </div>
+            <br>
 
-        <!--card footer-->
-        <div class="card-footer text-right">
-            <a href="#" class="btn btn-primary">Checkout</a>
-        </div>
+            <!--card footer-->
+            <div class="card-footer text-right">
+                <a href="#" class="btn btn-primary">Checkout</a>
+            </div>
 
+        </div>
     </div>
-</div>
 </div>
 <br>
 <!--</div>-->
