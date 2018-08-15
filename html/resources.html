@@ -16,30 +16,43 @@
 
 <!--NAV BAR BEGIN - used bootstrap styling -->
 <nav class="navbar navbar-expand-lg navbar-light gradient">
-    <a class="navbar-brand" href="#">developing learners</a>
+    <a class="navbar-brand" href="#">developing learners
+        <img src="../img/idea.svg" width="25" height="25" class="d-inline-block align-top" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- navbar items-->
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+            <!-- Home -->
             <li class="nav-item">
-                <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="home.html">home<span class="sr-only">(current)</span></a>
             </li>
+            <!-- Schedule -->
             <li class="nav-item">
-                <a class="nav-link" href="schedules.html">Schedule</a>
+                <a class="nav-link" href="schedules.html">schedule</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resources.html">Resourses</a>
-            </li>
-            <li class="nav-item dropdown active">
+            <!-- Practice -->
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Practice </a>
+                    practice </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item active" href="pushups.html">Pushups</a>
-                    <a class="dropdown-item" href="lesson-exercises.html">Lesson Exercises</a>
-                    <a class="dropdown-item" href="#">Extras</a>
+                    <a class="dropdown-item" href="pushups.html">pushups</a>
+                    <a class="dropdown-item" href="lesson-exercises.html">exercises</a>
+                    <a class="dropdown-item" href="#">drills</a>
+                </div>
+            </li>
+            <!--Resources-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="resources.html" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">resources </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="pushups.html">by topic</a>
+                    <a class="dropdown-item" href="lesson-exercises.html">graphics</a>
+                    <a class="dropdown-item" href="#">glossary</a>
                 </div>
             </li>
         </ul>
