@@ -8,17 +8,18 @@ var productSign = function (a, b, c) {
 };
 
 
-//console.log(productSign(5, -7, -2));
-//console.log(productSign(-8, 8, 4));
-//console.log(productSign(-5, -7, 10));
+//console.log(productSign(5, -7, -2)); //+
+//console.log(productSign(-8, 8, 4)); //-
+//console.log(productSign(-5, -7, 10)); //-
 
 
 var sort = function (a, b, c, d, e) {
     var sorted = [parseFloat(a), parseFloat(b), parseFloat(c), parseFloat(d), parseFloat(e)];
+
     sorted = sorted.sort(function (a, b) {
         return a - b
     });
-    return sorted;
+    return sxd;
 
     // var placeholder;
     // for (var i=0; i > 5; i++) {
@@ -186,7 +187,7 @@ var countRepeating = function(word) {
     var mostRepetitions = 0;
     var count = 1;
 
-    console.log(word);
+    //console.log(word);
 
     for (var i = 0; i <word.length; i++) {
         count = 1;
@@ -208,18 +209,93 @@ var countRepeating = function(word) {
 };
 
 
+// var problem5 = function(string) {
+//     string = string.toLowerCase();
+//     var words = string.split(" ");
+//     var mostRepeatWord = false;
+//     var isRepeating;
+//     var highestRepeat;
+//
+//     words.forEach(function(word) {
+//         var result = countRepeating(word);
+//         if (result != 1) {
+//             highestRepeat = result;
+//             mostRepeatWord = word;
+//         }
+//     });
+//
+//     return mostRepeatWord;
+// };
+
 var problem5 = function(string) {
     string = string.toLowerCase();
     var words = string.split(" ");
-    
+    var mostRepeatWord = [];
+    var isRepeating;
+    var highestRepeat;
+    words.forEach(function(word) {
+        var result = countRepeating(word);
+        if (result != 1) {
+            highestRepeat = result;
+            mostRepeatWord.push(word);
+        }
+
+    });
+    if (mostRepeatWord.length >= 1) {
+        return mostRepeatWord[0];
+    } else {
+        return false;
+    }
+
+};
+
+console.log(problem5("have a great day"));
+console.log(problem5("I love the ultimate taco bar"));
+console.log(problem5("element this appropriately"));
+console.log(problem5("appropriately this"));
+
+
+
+
+
+console.log(problem5("hello world"));
+console.log(problem5("world hello"));
+console.log(problem5("no repats"));
+console.log(problem5("some repeats"));
+// console.log(problem5("some rEpeats "));
+
+
+function repeatLetters(input) {
+    var newString = input.split(" ");
+    var repeatWord;
+
+    newString.forEach(function(element) {
+        var y =  element.split("");
+
+        for (var i = 0; i < y.length; i++) {
+            if (y[i] === y[i + 1]) {
+                repeatWord = y.join("");
+                console.log(repeatWord);
+                return repeatWord;
+            }
+        }
+    });
 }
 
 
 
-console.log(countRepeating("banana"));
-console.log(countRepeating("mississippi"));
-console.log(countRepeating('hello'));
-console.log(countRepeating("world"));
+// console.log(repeatLetters("hello world"));
+// console.log(repeatLetters("world hello"));
+// console.log(repeatLetters("no repats"));
+// console.log(repeatLetters("some repeats"));
+
+
+
+
+//console.log(countRepeating("banana"));
+// console.log(countRepeating("mississippi"));
+// console.log(countRepeating('hello'));
+// console.log(countRepeating("world"));
 
 
 //
