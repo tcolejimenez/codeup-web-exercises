@@ -25,27 +25,42 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<!-- mod buttons -->
+<button id="button-1">Change Heading</button>
+<button id="button-2">Change SubHeading</button>
+<button id="button-3">Change List</button>
+<button id="button-4">Change Paragraph</button>
+
+
+
+
 <script>
-    (function() {
-        "use strict";
+    "use strict";
+
+    var changeHeading = function() {
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header');
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
         mainHeader.innerHTML = "JavaScript is Cool";
 
+    };
+
+    var changeSubheading = function() {
         // TODO: Uncomment the next line and get the sub header element by id
-         var subHeader = document.getElementById('sub-header');
+        var subHeader = document.getElementById('sub-header');
 
         // TODO: Set the text color of subHeader to blue
         subHeader.style.color = 'blue';
+    };
 
+    var changeList = function() {
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
 
         // TODO: Set text color on every other list item to grey
-        for (var i=0; i<listItems.length; i++) {
-            if (i%2 == 1) {
+        for (var i = 0; i<listItems.length; i++) {
+            if (i%2 != 0) {
                 listItems[i].style.color = 'grey';
             }
         }
@@ -55,13 +70,37 @@
                 listItems[i].style.color = 'blue';
             }
         }
+    };
 
+    var changeParagraph = function() {
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs[0].innerHTML = "Mission Accomplished!";
-    })();
+    };
+
+    var button1 = document.getElementById('button-1');
+    button1.addEventListener('click', changeHeading);
+
+    var button2 = document.getElementById('button-2');
+    button2.addEventListener('click', changeSubheading);
+
+    var button3 = document.getElementById('button-3');
+    button3.addEventListener('click', changeList);
+
+    var button4 = document.getElementById('button-4');
+    button4.addEventListener('click', changeParagraph);
+
 </script>
 </body>
 </html>
+
+
+<!--
+Add 4 buttons to the page.
+Attach click event listeners to each of the buttons
+and have the handlers perform the modifications that were automatically taking place.
+For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+View the results in your browser to test for the expected output.
+-->
