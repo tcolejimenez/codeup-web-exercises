@@ -19,7 +19,7 @@ var sort = function (a, b, c, d, e) {
     sorted = sorted.sort(function (a, b) {
         return a - b
     });
-    return sxd;
+    return sorted;
 
     // var placeholder;
     // for (var i=0; i > 5; i++) {

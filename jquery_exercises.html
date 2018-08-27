@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Exercises</title>
+</head>
+<body>
+
+    <!--html for page -->
+    <h1 id="title">JQuery Exercises</h1>
+    <p>yo, yo, yo, wouldn't you know? JQuery's on the scene, so it's good to go.</p>
+
+    <div>
+        <h2 id="subtitle">Things that are cool: </h2>
+        <ul>
+            <li class="codeup">Cucumbers</li>
+            <li id="codeup">Hip-hop</li>
+            <li class="codeup">Being nice</li>
+        </ul>
+    </div>
+
+
+
+    <!--link to jquery-->
+    <script src="./js/jquery-2.2.4.js"></script>
+
+    <!--script for page -->
+    <script>
+        $(document).ready(function() {
+           $("li").css('font-size', '20px');
+           $("p, h1, li").css('background-color', 'yellow');
+            alert( $("h1").text() );
+        });
+    </script>
+</body>
+</html>
