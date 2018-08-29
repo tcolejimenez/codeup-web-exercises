@@ -3,8 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>National Parks FAQ</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-faq.css">
 </head>
 <body>
+    <h1>National Parks</h1>
+    <p>How much do you know about national parks? Test your knowledge with some fun questions! <a href="#" id="reveal">Reveal answers.</a></p>
 
+
+    <dl>
+        <dt class="q">Where was the world's first national park?</dt>
+        <dd class="a invisible">Right here! Yellowstone, created in 1872 by President Ulysses S. Grant, was the world's first.
+            Its caretakers? the cavalry.</dd>
+
+        <dt class="q">Which national park is the largest?</dt>
+        <dd class="a invisible">Wrangell, located in south central Alaska.
+            It was designated on December 1, 1978 by President Jimmy Carter and is larger than
+        the nation of Switzerland!</dd>
+
+        <dt class="q">Where's the nation's deepest cave system?</dt>
+        <dd class="a invisible">In New Mexico, Carlsbad Caverns National Park is home to the deepest cave in the US, which comes in at 1,593 feet deep.</dd>
+
+        <dt class="q">What's the largest volcano on earth?</dt>
+        <dd class="a invisible">Mauna Loa Volcano in Hawaii Volcanoes National Park is the largest volcano on earth.
+            It rises more than 50,000 feet above its base, including a portion which is beneath the ocean.</dd>
+
+        <dt class="q">Where is the newest U.S. national park?</dt>
+        <dd class="a invisible">Pinnacles National Park, located in California was designated on January 10, 2013,
+            making it America's newest national park.</dd>
+
+        <dt class="q">Which state has the most national parks in its borders?</dt>
+        <dd class="a invisible">It's a tie - Alaska and California both take the title, with 8 parks each.</dd>
+
+        <dt class="q">Is there a U.S. national park below the equator?</dt>
+        <dd class="a invisible">Yes! The National Park of American Samoa is the only one.
+            It covers 13,500 total acres - 9,500 land acres and 4,000 marine acres— which are mostly coral reefs. </dd>
+
+        <dt class="q">Where is the largest archaelogical preserve in the U.S.?</dt>
+        <dd class="a invisible">Why, that can be found at Mesa Verde National Park in Colorado. It includes ruins of 600 cliff dwellings
+            and a likely equally high number of archaelogists.</dd>
+
+        <dt class="q">How old are the trees at Redwoods National Park in California?</dt>
+        <dd class="a invisible">The average age of a redwood is  500-700 years old, but some can live to be 2,000 years old!</dd>
+
+        <dt class="q">Where could you find the lowest point in the contiguous U.S.?</dt>
+        <dd class="a invisible">Badwater Basin in Death Valley National Park, is 282 ft. below sea level, actually making it the lowest
+            point in Western Hemisphere.</dd>
+
+    </dl>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+        "use strict";
+
+        //document ready - all code inside
+        $(document).ready(function() {
+
+            //when reveal clicked, shows all answers
+            $('#reveal').click(function(event) {
+                event.preventDefault();
+                $('.a').toggleClass('invisible');
+            });
+
+            $('.q').click(function() {
+                $(this).next().toggleClass('invisible');
+            });
+
+
+
+        });
+
+    </script>
 </body>
 </html>

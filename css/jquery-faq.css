@@ -1,0 +1,53 @@
+* {
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+body {
+    background-color: #b6b6b1;
+    margin: 30px;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #1a5a30;
+    border: solid 1px black;
+    text-shadow: 2px 2px 3px black;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 50px;
+    background-color: #d4caae;
+
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+}
+
+
+.q {
+    color: #154727;
+    font-weight: bold;
+}
+
+.a {
+    margin-bottom: 20px;
+}
+
+#reveal {
+    text-decoration: underline;
+    color: #154727;
+
+}
+
+.invisible {
+    display: none;
+}
