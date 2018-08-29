@@ -1,10 +1,38 @@
+
+
+
 Exercises
 
-Element Selectors
-    Craft selectors that highlight all the h1, p, and li elements.
+    Create a new file named jquery_faq.html. Commit all changes to GitHub.
 
-    Create a jQuery statement to alert the contents of your h1 element(s).
+    In a HTML structure, create a definition list containing 10 FAQs about national parks.
 
-Multiple Selectors
+    Add a class to all dd elements named invisible.
 
-    Combine your selectors that highlight all the h1, p, and li elements.
+    Create CSS that sets elements with the invisible class to display: none.
+
+    Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+
+Bonus
+
+    When any one dt is clicked, the element that was clicked should be highlighted.
+
+
+
+
+############## Mole Biz ##################
+
+To build this game, follow these steps:
+
+Bonus
+
+    - Add a start button. Don't start the game until the button is pressed.
+
+    - Add a timer. Only allow clicks during the period.
+        If the timer is 30 seconds, the game should quit recording clicks after 30 seconds,
+        and should activate the start button. Clicking the start button should reset the game.
+
+    - Keep the high score for the round.
+        This does not need to persist between page loads, although it could if you wanted it to.
+
+    - Make the moles appear more often after each click.

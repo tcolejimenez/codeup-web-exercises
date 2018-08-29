@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <link rel="stylesheet" href="./css/grey-gold.css">
+</head>
+<body>
+<h1>Konami Code</h1>
+<p id="text">Think you got the goods? Enter the code, if you dare. </p>
+<p id="newtext"></p>
+<h4>Your input:</h4>
+<textarea id="input" readonly rows="15" cols="1" style="resize: none; width: 10px; overflow-y: scroll; float: left;"></textarea>
+<div id="image" style="display: none; float: left; margin-left: 20px"><img src="https://i.gifer.com/MTdw.gif" alt="congrats gif" width="400px"></div>
+
+<script src="./js/jquery-2.2.4.js"></script>
+
+
+<script>
+    "use strict";
+
+    //looking for "↑ ↑ ↓ ↓ ← → ← → b a enter"
+    //↑ = 38
+    //↓ = 40
+    //← = 37
+    //→ = 39
+    //b = 66
+    //a = 65
+    //enter = 13
+    //11 entered keys
+
+    var userInput = [];
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var codeEntered = false;
+    var timesEntered = 0;
+    var currKey;
+
+    $(document).keyup(function(event) {
+        //console.log(event.keyCode);
+
+        //logs keypress for user to see
+        switch (event.keyCode) {
+            case 37:
+                currKey = "&larr;";
+                break;
+            case 38:
+                currKey = "&uarr;";
+                break;
+            case 39:
+                currKey = "&rarr;";
+                break;
+            case 40:
+                currKey = "&darr;";
+                break;
+            case 65:
+                currKey = "a";
+                break;
+            case 66:
+                currKey = "b";
+                break;
+            case 13:
+                currKey = "&crarr;";
+                break;
+            default:
+                currKey = "x";
+        }
+
+        //adds entered key to text box
+        $("#input").prepend(currKey);
+
+        //slides up image if it has been displayed
+        //on next keypress
+        if (timesEntered >= 1) {
+            $("#image").slideUp("slow");
+        }
+
+        //adds user input to array
+        userInput.push(event.keyCode);
+
+        //if 13 (enter) entered
+        if (event.keyCode == 13 && userInput.length >= 11) {
+
+            //test to make sure code block triggered
+            //if enter entered and at least 11 keys entered
+            //console.log("got to if statement");
+
+            //create array for last eleven inputs
+            var last11keys = userInput.slice(userInput.length-11);
+
+            //test to see what array is returned with slice
+            //console.log(last11keys);
+
+            //tests new array against konami code
+            codeEntered = testArray(last11keys, konamiCode);
+
+        }
+
+
+        //if same as index in konami code
+        //do something
+        if (codeEntered) {
+            //alert("you did it!");
+
+            timesEntered++;
+
+            $("#text").css("text-decoration", "line-through");
+            $("#image").slideDown("slow");
+
+            if (timesEntered == 1) {
+                $("#newtext").append("Okay, you got the goods, confirmed. Try again? ");
+            }
+            else {
+                $("#newtext").text("Wow, you got the goods, " + timesEntered + "x confirmed. Try again? ");
+                var newWidth = 400 + timesEntered*100;
+                $("img").css("width", newWidth.toString());
+
+            }
+
+            //reset code so not set off immediately after next key press
+            codeEntered = false;
+        }
+
+    });
+
+
+
+    function testArray(arr1, arr2) {
+        //test to see if function called correctly
+        //console.log(arr1);
+        //console.log(arr2);
+
+        //test to ensure contents of each array are the same
+        for(var i = arr1.length; i--;) {
+            if(arr1[i] !== arr2[i])
+                return false;
+        }
+
+        return true;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+* {
+    text-align: center;
+    background-color: #858585;
+    font-family: "American Typewriter", monospace;
+}
+
+#game-board {
+    width: 490px;
+    height: 490px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.tile {
+    border: solid 3px black;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 3px;
+    background-color: #fff;
+
+}
+
+.mole {
+    width: 150px;
+    height: 150px;
+    display: none;
+    background-color: #FFF;
+}
+
+h1 {
+    text-decoration: underline;
+    text-decoration-color: #bd0027;
+}
+
+h3, h4 {
+    margin-bottom: 0px;
+}
+
+p {
+    margin-top: 0px;
+}
+
+#score {
+    display: inline-block;
+}
+
+h4 {
+    display: inline-block;
+
+}
+
+button {
+    width: 50px;
+    height: 40px;
+    margin: 7px;
+    background-color: #cecece;
+    display: inline-block;
+}
+
+#start {
+    margin-right: 140px;
+}
+
+#pause {
+    margin-left: 140px;
+}
+
+#instructions {
+    max-width: 500px;
+    margin: 0 auto;
+}

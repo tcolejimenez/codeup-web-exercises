@@ -27,11 +27,17 @@ div {
     padding: 10px;
     color: #292929;
     background-color: #888888;
-    width: 600px;
+    /*width: 600px;*/
 }
 
 input, textarea {
     margin-bottom: 15px;
+    border-style: dashed;
+    border-width: 3px;
+    border-color: #E4CD80;
+    padding: 10px;
+    color: #292929;
+    background-color: #888888;
 }
 
 textarea {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whack-A-Mole Game</title>
+    <link rel="stylesheet" href="./css/whack-a-mole.css">
+</head>
+<body>
+
+
+    <!-- Info -->
+    <h1>Whack-A-Bug</h1>
+    <h3>Instructions:</h3>
+    <p id="instructions">Who likes programming bugs? No one, that's who! Well, now's your chance to take out
+        the buggers. Click start to begin the game, and whack those bugs with a click before they
+        disappear. See if you can get the high score!</p>
+
+    <!-- Start/Stop buttons -->
+    <button id="start">Start</button>
+
+
+    <h4>Score: </h4>
+    <p id ="score">0</p>
+
+
+    <button id="pause" disabled="true">Pause</button>
+
+    <!-- Game board -->
+    <div id="game-board">
+        <div class="tile"><img id="1" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="2" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="3" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="4" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="5" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="6" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="7" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="8" class="mole" src="./img/bug.png" alt="bug"></div>
+        <div class="tile"><img id="9" class="mole" src="./img/bug.png" alt="bug"></div>
+    </div>
+
+
+
+    <script src="./js/jquery-2.2.4.js"></script>
+    <script src="./js/whack-a-mole.js"></script>
+</body>
+</html>
