@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <!--Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+
+    <div class = "container pt-5">
+        <h1 class = "m-3">My Personal Blog</h1>
+
+        <main id="posts"> </main>
+
+    </div>
+
+
+
+
+    <!--Bootstrap links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- plus our ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <script>
+        var result = $.ajax('./data/blog.json');
+        result.done(function(data) {
+            console.log(data);
+            var posts = "";
+
+
+            data.reverse().forEach(function(post) {
+                var title = "<h3 class='title float-left mb-3'>" + post.title + "</h3>";
+                var date = "<h4 class='date float-right mb-3'>" + post.date + "</h4>";
+                var content = "<p class='content'>" + post.content  + "</p>";
+                var categories = "<p class='categories text-right'><span class='category'>" + post.categories.join("</span>, <span class='category'>") +"</span></p>";
+
+                posts += "<hr class='hr-4'><article class='mt-5 mb-5'>" + title + date + content + categories + "</article>";
+            });
+
+            console.log(posts);
+            $("#posts").html(posts);
+
+
+        });
+
+        result.fail(function() {
+
+        })
+    </script>
+
+
+</body>
+</html>

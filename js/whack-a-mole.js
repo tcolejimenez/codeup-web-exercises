@@ -11,6 +11,7 @@ $(document).ready(function() {
     function randomMole () {
         var molePosition = "#" + (Math.floor(Math.random() * 9) + 1);
         var currentMole = $(molePosition);
+
         var scoreText = $("#score");
 
         if (gameOn) {
@@ -35,6 +36,7 @@ $(document).ready(function() {
             //fades out square after showing for interval
             //if mole not clicked
             window.setTimeout(function() {currentMole.fadeOut("fast");}, fadeOutInterval);
+
         }
     }
 

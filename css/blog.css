@@ -1,0 +1,40 @@
+body {
+    background-color: #b68a83;
+    color: #2e2d2d;
+}
+
+h1 {
+    text-decoration: underline;
+
+}
+
+h3 {
+
+}
+
+
+p {
+
+
+}
+
+.title {
+
+}
+
+
+.content {
+    clear: both;
+
+}
+
+.categories {
+    font-size: .80em;
+    font-weight: bold;
+}
+
+.category {
+    text-decoration: underline;
+
+}
+
