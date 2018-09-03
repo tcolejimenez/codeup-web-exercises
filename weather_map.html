@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map Project</title>
+    <link rel="stylesheet" href="css/weather_map.css">
+</head>
+<body>
+
+
+<!-- Intro to page -->
+<h1>Weather Map Project</h1>
+<p>This project will use HTML, CSS, Javascript, JQuery, ajax, and the <a href="https://openweathermap.org/">Open Weather
+    API</a>
+    to construct a responsive weather service. Enjoy! </p>
+
+
+<div id="container">
+
+    <!-- current weather -->
+    <div>
+        <h2>Today:</h2>
+        <h3 id="date-today"></h3>
+        <!--box to display graphics -->
+
+        <div class="graphic">
+            <h2 class="min-max" id="today"></h2>
+            <img id="icon-today">
+            <h5 id="weather-today"></h5>
+            <h5 id="humidity-today">Humidity: </h5>
+            <h5 id="wind-today">Wind Speed: </h5>
+            <h5 id="pressure-today">Pressure: </h5>
+
+        </div>
+
+        <h3>Details: </h3>
+        <table id="current-weather"></table>
+    </div>
+
+
+    <!-- tomorrow forecast -->
+    <div>
+        <h2>Tomorrow: </h2>
+        <h3 id="date-tomorrow"></h3>
+
+        <!-- box to hold main data -->
+        <div class="graphic">
+            <h2 class="min-max" id="tomorrow"></h2>
+            <img id="icon-tomorrow">
+            <h5 id="weather-tomorrow"></h5>
+            <h5 id="humidity-tomorrow">Humidity: </h5>
+            <h5 id="wind-tomorrow">Wind Speed: </h5>
+            <h5 id="pressure-tomorrow">Pressure: </h5>
+        </div>
+
+        <!-- Displays main info below box  -->
+        <h3>Details: </h3>
+        <table id="tomorrow-weather"></table>
+    </div>
+
+
+    <!-- next day forecast -->
+    <div>
+        <h2>Next Day: </h2>
+        <h3 id="date-next-day"></h3>
+
+        <!-- box to hold main data -->
+        <div class="graphic">
+            <h2 class="min-max" id="next-day"></h2>
+            <img id="icon-next-day">
+            <h5 id="weather-next-day"></h5>
+            <h5 id="humidity-next-day">Humidity: </h5>
+            <h5 id="wind-next-day">Wind Speed: </h5>
+            <h5 id="pressure-next-day">Pressure: </h5>
+        </div>
+
+        <!-- Displays main info below box  -->
+        <h3>Details: </h3>
+        <table id="next-day-weather"></table>
+    </div>
+
+
+</div>
+
+
+<!-- including jQuery -->
+<script src="js/jquery-2.2.4.js"></script>
+
+
+<!-- js script for populating info -->
+<script>
+
+
+    //current weather
+    $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: "80fc2dd2efdb24422bca10ece23ec23c",
+        q: "San Antonio, US",
+        units: "imperial"
+    }).done(function (data) {
+        //can see data returned by API
+        //console.log(data);
+        //console.log(data.main);
+
+
+        //create an array with data info
+        var weatherInfo = Object.entries(data.main);
+
+        //wtf this holds
+        //just weather data currently
+        //console.log(weatherInfo);
+
+
+
+
+
+        // data for box
+
+        //weatherInfo[3] = min temp for day
+        //weatherInfo[3][1] = value stored for that element
+        $("#today").append(Math.round(weatherInfo[3][1]) + "&deg;/ ");
+        $("#today").append(Math.round(weatherInfo[4][1]) + "&deg;");
+
+        //updates icon based on weather
+        $("#icon-today").attr("src","http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+
+        //grabs inputs weather and description
+        $("#weather-today").append(data.weather[0].main + ": " + data.weather[0].description);
+
+        //inputs humidity for today
+        $("#humidity-today").append(weatherInfo[2][1]);
+
+        //inputs wind for today
+        $("#wind-today").append(data.wind.speed);
+
+        //inputs pressure for today
+        $("#pressure-today").append(weatherInfo[1][1]);
+
+
+
+
+        //format output for info provided for details section
+        var output;
+        weatherInfo.forEach(function (entry) {
+            //console.log(entry);
+            output += "<tr>";
+            output += "<td>" + entry[0] + "</td>";
+            output += "<td>" + entry[1] + "</td>";
+            output += "</tr>";
+        });
+
+        //display date under title
+        var today = new Date();
+        $("#date-today").text(today.toDateString());
+
+        //display output underneath
+        $("#current-weather").append(output);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    //forecast for tomorrow
+    $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        APPID: "80fc2dd2efdb24422bca10ece23ec23c",
+        q: "San Antonio, US",
+        units: "imperial"
+    }).done(function (data) {
+        //console.log(data);
+        //console.log(data.list);
+
+
+        //gotta figure out what is tomorrow !!!!!
+        //save as variable to reference
+
+
+
+
+
+
+
+
+        //first forcast for next day
+        //console.log(data.list[0]);
+        $("#date-tomorrow").text(data.list[0].dt_txt);
+
+        //save data desired in array
+        var tomorrowInfo = Object.entries(data.list[0].main);
+
+
+
+
+
+
+
+        // data for box
+        //high & low
+        $("#tomorrow").append(Math.round(tomorrowInfo[1][1]) + "&deg;/ ");
+        $("#tomorrow").append(Math.round(tomorrowInfo[2][1]) + "&deg;");
+
+
+        //updates icon based on weather
+        $("#icon-tomorrow").attr("src","http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png");
+
+
+        //grabs inputs weather and description
+        $("#weather-tomorrow").append(data.list[0].weather[0].main + ": " + data.list[0].weather[0].description);
+
+        //inputs humidity for today
+        $("#humidity-tomorrow").append(tomorrowInfo[6][1]);
+
+        //inputs wind for today
+        $("#wind-tomorrow").append(data.list[0].wind.speed);
+
+        //inputs pressure for today
+        $("#pressure-tomorrow").append(tomorrowInfo[3][1]);
+
+
+
+
+
+        //format data for output in details section
+        var output;
+        tomorrowInfo.forEach(function (entry) {
+            //console.log(entry);
+            output += "<tr>";
+            output += "<td>" + entry[0] + "</td>";
+            output += "<td>" + entry[1] + "</td>";
+            output += "</tr>";
+        });
+
+        //check notes
+        //console.log();
+        //var tomorrow = new Date(data.list[0].dt);
+        //console.log(tomorrow);
+        //$("#date-tomorrow").text(tomorrow.toDateString());
+
+        $("#tomorrow-weather").append(output);
+    });
+
+
+
+
+
+
+
+    //forecast for next day
+    $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        APPID: "80fc2dd2efdb24422bca10ece23ec23c",
+        q: "San Antonio, US",
+        units: "imperial"
+    }).done(function (data) {
+        //console.log(data);
+        console.log(data.list);
+        //console.log(data.list[0]);
+
+        //displays date above box
+        $("#date-next-day").text(data.list[8].dt_txt);
+
+
+
+
+
+        //save data desired in array
+        var nextDayInfo = Object.entries(data.list[8].main);
+
+
+        //data for box
+
+        $("#next-day").append(Math.round(nextDayInfo[1][1]) + "&deg;/ ");
+        $("#next-day").append(Math.round(nextDayInfo[2][1]) + "&deg;");
+
+        //updates icon based on weather
+        $("#icon-next-day").attr("src","http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png");
+
+        //grabs inputs weather and description
+        $("#weather-next-day").append(data.list[8].weather[0].main + ": " + data.list[8].weather[0].description);
+
+        //inputs humidity for today
+        $("#humidity-next-day").append(nextDayInfo[6][1]);
+
+        //inputs wind for today
+        $("#wind-next-day").append(data.list[8].wind.speed);
+
+        //inputs pressure for today
+        $("#pressure-next-day").append(nextDayInfo[3][1]);
+
+
+        //format data for output
+        var output;
+        nextDayInfo.forEach(function (entry) {
+            //console.log(entry);
+            output += "<tr>";
+            output += "<td>" + entry[0] + "</td>";
+            output += "<td>" + entry[1] + "</td>";
+            output += "</tr>";
+        });
+
+
+        $("#next-day-weather").append(output);
+    });
+
+
+
+
+</script>
+</body>
+</html>
