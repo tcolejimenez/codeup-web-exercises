@@ -15,6 +15,21 @@
     to construct a responsive weather service. Enjoy! </p>
 
 
+
+    <!-- user input area -->
+    <div id="user-input">
+        <form>
+            <label for="lat">Latitude</label>
+            <input type="text" name="lat" id="lat">
+            <label for="lon">Longitude</label>
+            <input type="text" name="lon" id="lon">
+            <button type="submit">Submit</button>
+        </form>
+        <h2 id="location"></h2>
+
+    </div>
+
+
 <div id="container">
 
     <!-- current weather -->
@@ -24,6 +39,7 @@
         <!--box to display graphics -->
 
         <div class="graphic">
+            <h3 id="dt-today"></h3>
             <h2 class="min-max" id="today"></h2>
             <img id="icon-today">
             <h5 id="weather-today"></h5>
@@ -45,6 +61,7 @@
 
         <!-- box to hold main data -->
         <div class="graphic">
+            <h3 id="dt-tomorrow"></h3>
             <h2 class="min-max" id="tomorrow"></h2>
             <img id="icon-tomorrow">
             <h5 id="weather-tomorrow"></h5>
@@ -66,6 +83,7 @@
 
         <!-- box to hold main data -->
         <div class="graphic">
+            <h3 id="dt-next-day"></h3>
             <h2 class="min-max" id="next-day"></h2>
             <img id="icon-next-day">
             <h5 id="weather-next-day"></h5>
@@ -314,19 +332,24 @@
     //need to refactor q to take lat & long later
 
 
-    function createWeatherObj (location, day) {
+    function createWeatherObj (lat, lon, day) {
+        //declaring object for any day
         var weatherObj = {};
 
         if (day == "today") {
             var result = $.get("http://api.openweathermap.org/data/2.5/weather", {
                 APPID: "80fc2dd2efdb24422bca10ece23ec23c",
-                q: location,
+                lat: location,
+                lon: , g
                 units: "imperial"
             });
 
             result.done(function (data) {
-                console.log(data);
-                weatherObj.dt = data.dt;
+                //console.log(data);
+
+                //adds info to object
+                weatherObj.name = data.name;
+                weatherObj.dt = new Date(data.dt * 1000);
                 weatherObj.min = data.main.temp_min;
                 weatherObj.max = data.main.temp_max;
                 weatherObj.icon = data.weather[0].icon;
@@ -336,12 +359,26 @@
                 weatherObj.wind = data.wind.speed;
                 weatherObj.pressure = data.main.pressure;
 
+                //console.log(new Date(data.dt * 1000));
+
+                renderWeather(weatherObj, "today");
 
             });
 
-           // console.log(data.dt);
         }
         else {
+            var listIndex = 0;
+            var today = new Date();
+            var tomorrow = new Date();
+            var nextDay = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+            nextDay.setDate(today.getDate() + 2);
+
+            //can check dates to ensure accuracy
+            //console.log(today);
+            //console.log(tomorrow);
+            //console.log(nextDay);
+
             var result = $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 APPID: "80fc2dd2efdb24422bca10ece23ec23c",
                 q: location,
@@ -349,39 +386,195 @@
             });
 
             if (day == "tomorrow") {
+                var dt;
+                var minTemp = Infinity;
+                var maxTemp = 0;
+                var humidity = 0;
+                var wind = 0;
+                var pressure = 0;
+                var count = 0;
+
                 result.done(function (data) {
-                    console.log(data);
-
-                    console.log(new Date(1536116400 * 1000));
-
-                    // weatherObj.dt = data.dt;
-                    // weatherObj.min = data.main.temp_min;
-                    // weatherObj.max = data.main.temp_max;
-                    // weatherObj.icon = data.weather[0].icon;
-                    // weatherObj.shortWeather = data.weather[0].main;
-                    // weatherObj.longWeather = data.weather[0].description;
-                    // weatherObj.humidity = data.main.humidity;
-                    // weatherObj.wind = data.wind.speed;
-                    // weatherObj.pressure = data.main.pressure;
+                    //console.log(new Date(data.list[0].dt * 1000).getDate());
+                    //console.log(data.list[0].dt_txt);
 
 
+                    //updates index to tomorrow
+                    while ((new Date(data.list[listIndex].dt * 1000).getDate()) == today.getDate()) {
+                        listIndex++;
+                    }
 
+                    //list index now holds tomorrow's date
+                    //while not next day add up values and assign average to object
+                    while ((new Date(data.list[listIndex].dt * 1000).getDate()) == tomorrow.getDate()) {
+                        var currentEntry = data.list[listIndex];
+
+                        //tests and saves smallest and highest temp it finds for that day
+                        if (currentEntry.main.temp_min < minTemp)
+                            minTemp = currentEntry.main.temp_min;
+
+                        if (currentEntry.main.temp_max > maxTemp)
+                            maxTemp = currentEntry.main.temp_max;
+
+                        humidity += currentEntry.main.humidity;
+                        wind += currentEntry.wind.speed;
+                        pressure += currentEntry.main.pressure;
+
+                        if (new Date(currentEntry.dt * 1000).getHours() == 13) {
+                            dt = new Date(currentEntry.dt * 1000);
+                            icon = currentEntry.weather[0].icon;
+                            shortWeather = currentEntry.weather[0].main;
+                            longWeather = currentEntry.weather[0].description;
+                        }
+
+                        count++;
+                        listIndex++;
+                    }
+
+                    //calculates average for numeric values
+                    humidity /= count;
+                    wind /= count;
+                    pressure /= count;
+
+
+                    //assigns values to object
+                    weatherObj.dt = dt;
+                    weatherObj.min = minTemp;
+                    weatherObj.max = maxTemp;
+                    weatherObj.icon = icon;
+                    weatherObj.shortWeather = shortWeather;
+                    weatherObj.longWeather = longWeather;
+                    weatherObj.humidity = humidity;
+                    weatherObj.wind = wind;
+                    weatherObj.pressure = pressure;
+
+
+                    renderWeather(weatherObj, "tomorrow");
+
+                });
+                result.fail(function () {
+                    console.log("Oops! something went wrong.")
                 });
             }
 
             else if (day == "next day") {
 
+                //placeholder variables
+                //numerically assigned
+                var minTemp = Infinity;
+                var maxTemp = 0;
+                var humidity = 0;
+                var wind = 0;
+                var pressure = 0;
 
+                //variables assigned at 1pm
+                var dt;
+                var icon;
+                var shortWeather;
+                var longWeather;
+
+                var count = 0;
+
+                result.done(function (data) {
+                    //console.log(new Date(data.list[0].dt * 1000).getDate());
+                    //console.log(data.list[0].dt_txt);
+
+
+                    //updates index to next day
+                    while ((new Date(data.list[listIndex].dt * 1000).getDate()) <= tomorrow.getDate()) {
+                        listIndex++;
+                    }
+
+
+                    //list index now holds next day's date
+                    //while not next day add up values and assign average to object
+                    while ((new Date(data.list[listIndex].dt * 1000).getDate()) == nextDay.getDate()) {
+                        var currentEntry = data.list[listIndex];
+
+                        //tests and saves smallest and highest temp it finds for that day
+                        if (currentEntry.main.temp_min < minTemp)
+                            minTemp = currentEntry.main.temp_min;
+
+                        if (currentEntry.main.temp_max > maxTemp)
+                            maxTemp = currentEntry.main.temp_max;
+
+                        humidity += currentEntry.main.humidity;
+                        wind += currentEntry.wind.speed;
+                        pressure += currentEntry.main.pressure;
+
+                        if (new Date(currentEntry.dt * 1000).getHours() == 13) {
+                            dt = new Date(currentEntry.dt * 1000);
+                            icon = currentEntry.weather[0].icon;
+                            shortWeather = currentEntry.weather[0].main;
+                            longWeather = currentEntry.weather[0].description;
+                        }
+                        count++;
+                        listIndex++;
+                    }
+
+                    //calculates average for numeric values
+                    humidity /= count;
+                    wind /= count;
+                    pressure /= count;
+
+                    //assigns values to object
+                    weatherObj.dt = dt;
+                    weatherObj.min = minTemp;
+                    weatherObj.max = maxTemp;
+                    weatherObj.icon = icon;
+                    weatherObj.shortWeather = shortWeather;
+                    weatherObj.longWeather = longWeather;
+                    weatherObj.humidity = humidity;
+                    weatherObj.wind = wind;
+                    weatherObj.pressure = pressure;
+
+                    renderWeather(weatherObj, "next-day");
+
+                });
             }
         }
-
-
         return weatherObj;
     }
 
 
-    console.log(createWeatherObj("San Antonio, US", "today"));
-    console.log(createWeatherObj("San Antonio, US", "tomorrow"));
+
+    function renderWeather(obj, day) {
+        $("#location").append(obj.name);
+
+
+        $("#dt-" + day).append(obj.dt.toString().substring(0,15));
+
+        $("#" + day).append(Math.round(obj.min) + "&deg;/ ");
+        $("#" + day).append(Math.round(obj.max) + "&deg;");
+
+        //updates icon based on weather
+        $("#icon-" + day).attr("src","http://openweathermap.org/img/w/" + obj.icon + ".png");
+
+        //grabs inputs weather and description
+        $("#weather-" + day).append(obj.shortWeather + ": " + obj.longWeather);
+
+        //inputs humidity for today
+        $("#humidity-" + day).append(Math.round(obj.humidity) + "%");
+
+        //inputs wind for today
+        $("#wind-" + day).append(obj.wind.toFixed(2) + " mph");
+
+        //inputs pressure for today
+        $("#pressure-" + day).append(Math.round(obj.pressure) + " mb");
+    }
+
+    var today = createWeatherObj("San Antonio, US", "today");
+    var tomorrow = createWeatherObj("San Antonio, US", "tomorrow");
+    var nextDay = createWeatherObj("San Antonio, US", "next day");
+
+
+
+
+
+    console.log(today);
+    console.log(tomorrow);
+    console.log(nextDay);
+
 
 
 

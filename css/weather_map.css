@@ -15,7 +15,9 @@ h1 {
     margin: 1em;
 }
 
-
+h2 {
+    text-align: center;
+}
 
 tr {
 }
@@ -50,4 +52,8 @@ table {
 
 .min-max {
     padding-top: 0.25em;
+}
+
+#user-input {
+    width: 100%;
 }
