@@ -90,6 +90,7 @@
 <!-- js script for populating info -->
 <script>
 
+    /*
 
     //current weather
     $.get("http://api.openweathermap.org/data/2.5/weather", {
@@ -107,11 +108,7 @@
 
         //wtf this holds
         //just weather data currently
-        //console.log(weatherInfo);
-
-
-
-
+        console.log(weatherInfo);
 
         // data for box
 
@@ -257,7 +254,7 @@
         q: "San Antonio, US",
         units: "imperial"
     }).done(function (data) {
-        //console.log(data);
+        console.log(data);
         console.log(data.list);
         //console.log(data.list[0]);
 
@@ -306,6 +303,92 @@
 
         $("#next-day-weather").append(output);
     });
+
+
+
+
+    */
+
+
+
+    //need to refactor q to take lat & long later
+
+
+    function createWeatherObj (location, day) {
+        var weatherObj = {};
+
+        if (day == "today") {
+            var result = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: "80fc2dd2efdb24422bca10ece23ec23c",
+                q: location,
+                units: "imperial"
+            });
+
+            result.done(function (data) {
+                console.log(data);
+                weatherObj.dt = data.dt;
+                weatherObj.min = data.main.temp_min;
+                weatherObj.max = data.main.temp_max;
+                weatherObj.icon = data.weather[0].icon;
+                weatherObj.shortWeather = data.weather[0].main;
+                weatherObj.longWeather = data.weather[0].description;
+                weatherObj.humidity = data.main.humidity;
+                weatherObj.wind = data.wind.speed;
+                weatherObj.pressure = data.main.pressure;
+
+
+            });
+
+           // console.log(data.dt);
+        }
+        else {
+            var result = $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: "80fc2dd2efdb24422bca10ece23ec23c",
+                q: location,
+                units: "imperial"
+            });
+
+            if (day == "tomorrow") {
+                result.done(function (data) {
+                    console.log(data);
+
+                    console.log(new Date(1536116400 * 1000));
+
+                    // weatherObj.dt = data.dt;
+                    // weatherObj.min = data.main.temp_min;
+                    // weatherObj.max = data.main.temp_max;
+                    // weatherObj.icon = data.weather[0].icon;
+                    // weatherObj.shortWeather = data.weather[0].main;
+                    // weatherObj.longWeather = data.weather[0].description;
+                    // weatherObj.humidity = data.main.humidity;
+                    // weatherObj.wind = data.wind.speed;
+                    // weatherObj.pressure = data.main.pressure;
+
+
+
+                });
+            }
+
+            else if (day == "next day") {
+
+
+            }
+        }
+
+
+        return weatherObj;
+    }
+
+
+    console.log(createWeatherObj("San Antonio, US", "today"));
+    console.log(createWeatherObj("San Antonio, US", "tomorrow"));
+
+
+
+
+
+
+
 
 
 

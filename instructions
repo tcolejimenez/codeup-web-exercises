@@ -1,38 +1,68 @@
-
-
+####################### Traversing #######################
 
 Exercises
 
-    Create a new file named jquery_faq.html. Commit all changes to GitHub.
+    Open the file named jquery_faq.html for editing. Commit all changes to GitHub.
 
-    In a HTML structure, create a definition list containing 10 FAQs about national parks.
+    - Under the FAQ, add 3 unordered lists like above.
+    - Each list should contain a national park name in an h3 element, and a ul of 4 facts about the park.
 
-    Add a class to all dd elements named invisible.
+    - Create a button that, when clicked, makes the last li in each ul have a yellow background.
 
-    Create CSS that sets elements with the invisible class to display: none.
+    - When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
 
-    Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
-
-Bonus
-
-    When any one dt is clicked, the element that was clicked should be highlighted.
-
-
-
-
-############## Mole Biz ##################
-
-To build this game, follow these steps:
+    - When any list item is clicked, first li of the parent ul should have a font color of blue.
 
 Bonus
 
-    - Add a start button. Don't start the game until the button is pressed.
+- Create 3 divs that each look like a picture Frame;
+    each one should have a unique background image and a button underneath that swaps the image from the frame.
+    Use Traversing functions of jQuery to accomplish this.
 
-    - Add a timer. Only allow clicks during the period.
-        If the timer is 30 seconds, the game should quit recording clicks after 30 seconds,
-        and should activate the start button. Clicking the start button should reset the game.
+    The rules are the following:
+        The left frame swaps to the right and takes the image from the frame in the center.
+        The center frame swaps randomly to either the left or right.
+        The right frame swaps to the left and takes the image from the frame in the center.
 
-    - Keep the high score for the round.
-        This does not need to persist between page loads, although it could if you wanted it to.
 
-    - Make the moles appear more often after each click.
+
+
+####################### Effects #######################
+
+Exercises
+
+For this exercise, we will continue working on the jquery_faq.html file.
+
+    At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?" and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
+
+    The uls next to each h3 that contain facts about each park should start out hidden, and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+
+    After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+
+    As always, make sure you are adding, commiting and pushing to Github.
+
+Bonus
+
+    Use a bootstrap alert for the dismissable message that shows on page load.
+
+    Use a bootstrap modal for the message that fades in after 8 seconds. You may find that you can use bootstrap's modal methods to achieve the fading effect.
+
+
+################## Ajax - Weather Map Project ##################
+
+
+Update your layout and ajax request(s) to display a three day forecast for San Antonio that looks like the screenshot below.
+
+3 Day Forecast
+
+The URLs for OpenWeatherMap's icons are formatted http://openweathermap.org/img/w/[icon].png where [icon] comes from the API request.
+
+    Create input boxes for "Latitude" and "Longitude" and a <button> that will take the values from those inputs and feed them into your API request. Use Google Maps to find the coordinates for different places around the world and test this out.
+
+    Go back to your Google Maps API exercise. Recreate the map below your 3 day forecast. Read through the documentation for the Google Maps API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the three day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+
+3 Day Forecast Map
+
+    As you complete each step, commit your changes and push them to GitHub.
+
+
