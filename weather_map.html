@@ -23,7 +23,7 @@
             <input type="text" name="lat" id="lat">
             <label for="lon">Longitude</label>
             <input type="text" name="lon" id="lon">
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit">Submit</button>
         </form>
         <h2 id="location"></h2>
 
@@ -339,8 +339,8 @@
         if (day == "today") {
             var result = $.get("http://api.openweathermap.org/data/2.5/weather", {
                 APPID: "80fc2dd2efdb24422bca10ece23ec23c",
-                lat: location,
-                lon: , g
+                lat: lat,
+                lon: lon,
                 units: "imperial"
             });
 
@@ -375,13 +375,14 @@
             nextDay.setDate(today.getDate() + 2);
 
             //can check dates to ensure accuracy
-            //console.log(today);
-            //console.log(tomorrow);
-            //console.log(nextDay);
+            console.log(today);
+            console.log(tomorrow);
+            console.log(nextDay);
 
             var result = $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 APPID: "80fc2dd2efdb24422bca10ece23ec23c",
-                q: location,
+                lat: lat,
+                lon: lon,
                 units: "imperial"
             });
 
@@ -536,8 +537,6 @@
         return weatherObj;
     }
 
-
-
     function renderWeather(obj, day) {
         $("#location").append(obj.name);
 
@@ -563,17 +562,35 @@
         $("#pressure-" + day).append(Math.round(obj.pressure) + " mb");
     }
 
-    var today = createWeatherObj("San Antonio, US", "today");
-    var tomorrow = createWeatherObj("San Antonio, US", "tomorrow");
-    var nextDay = createWeatherObj("San Antonio, US", "next day");
+    function createAllWeatherObjs (lat, lon) {
+        var today = createWeatherObj(lat ,lon , "today");
+        var tomorrow = createWeatherObj(lat, lon, "tomorrow");
+        var nextDay = createWeatherObj(lat, lon, "next day");
+
+        // console.log(today);
+        // console.log(tomorrow);
+        // console.log(nextDay);
+
+
+    }
+
+    createAllWeatherObjs("44.971143", "-93.266285");
+    $("#lat").val(44.971143);
+    $("#lon").val(-93.266285);
+
+    $("#submit").click(function (e) {
+        e.preventDefault();
+        var lat = $("#lon").val();
+        var lon = $("#lat").val();
+        console.log(lat);
+        console.log(lon);
+        createAllWeatherObjs(parseFloat(lat), parseFloat(lon));
+        }
+    );
 
 
 
 
-
-    console.log(today);
-    console.log(tomorrow);
-    console.log(nextDay);
 
 
 
