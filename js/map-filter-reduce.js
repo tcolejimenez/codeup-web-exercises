@@ -88,9 +88,10 @@ const avgExp = totalExp/users.length;
 
 //Use reduce to get the longest email from the list of users.
 const longestEmail = users.reduce((longest, user) => {
-    if (user.email.length > longest.length) {
+
+    if (user.email.length > longest.length)
         longest = user.email;
-    }
+
     return longest;
 } , "");
 
@@ -101,6 +102,8 @@ const longestEmail = users.reduce((longest, user) => {
 
 //Use reduce to get the list of user's names in a single string.
 const namesString = users.reduce((allnames, user) => allnames += user.name + ", " , "Your instructors names are: ");
+
+//console.log(namesString);
 
 //test answer
 //console.log(namesString.substring(0, namesString.length-2));
